@@ -1,7 +1,6 @@
 units			metal
 boundary		f f p
 atom_style		atomic
-timestep		0.005
 
 read_data		screw.data
 
@@ -74,6 +73,11 @@ velocity		mid create ${Ttar} 320475834 temp new3d
 fix			4 mid temp/rescale 10 ${Ttar} ${Ttar} 20.0 1.0
 fix_modify		4 temp new3d
 thermo_modify		temp new3d
+run			1000
+
+unfix		4	
+velocity		mid create 10 320475834 temp new3d
+fix			4 mid temp/rescale 10 10 10 2.0 1.0
 run			1000
 #===========
 dump			1 all custom 50 rs*.xyz id type x y z c_pea c_csp
