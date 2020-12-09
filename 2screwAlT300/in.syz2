@@ -67,7 +67,7 @@ fix 	            	3 all nve
 
 #=========Temperature
 compute			new3d mid temp
-compute			new2d mid temp/partial 0 1 1
+compute			new2d mid temp/partial 1 1 0
 
 velocity		mid create ${Ttar} 320475834 temp new3d
 fix			4 mid temp/rescale 10 ${Ttar} ${Ttar} 20.0 1.0
